@@ -1,0 +1,108 @@
+<html>
+<head>
+    <title>FormValidation Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <div class="container"> 
+        <form action="#" onsubmit="return validation()" class="form_container">
+            <h1 class="ttext"> Complete Form Validation in Javascript</h1><br>
+                <div class="form-group">
+                    <label>Username:</label>
+                    <input type="text" name="user" id="user" autocomplete="off">
+                    <!-- Create Span tage For show Error -->
+                    <span id="username"class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label>password:</label>
+                    <input type="text" name="pass" id="pass" autocomplete="off">
+                    <!-- Create Span tage For show Error -->
+                    <span id="password"class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label>Confirm password:</label>
+                    <input type="text" name="conpass" id="conpass" autocomplete="off">
+                    <!-- Create Span tage For show Error -->
+                    <span id="confirmpass"class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number:</label>
+                    <input type="text" name="mobile" id="mobile Number" autocomplete="off">
+                    <!-- Create Span tage For show Error -->
+                    <span id="mobileno"class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" name="Email" id="emails" autocomplete="off">
+                    <!-- Create Span tage For show Error -->
+                    <span id="emailid"class="error"></span>
+                </div>
+                <input type="submit" name="submit" value="submit" class="btn" autocomplete="off">
+            </form>
+        </div>  
+    <script>
+        function validation() {
+            var user = document.getElementById("user").value;
+            var pass = document.getElementById("pass").value;
+            var conpass = document.getElementById("conpass").value;
+            var mobileno = document.getElementById("mobile Number").value;
+            var emails = document.getElementById("emails").value;
+
+            if ((user == "") || (user.length <= 2)) {
+                // username is in span id name 
+                document.getElementById("username").innerHTML = "Please Fill Correct name";
+                return false;
+            }
+            //2.This Condition is Checking is Empty or Not
+            if ((pass == "") || (pass.length <= 6)) {
+                // password is span class name 
+                document.getElementById("password").innerHTML = "Please Fill Correct password";
+                return false;
+            }
+            //How Much We need user name we should define here 
+            if ((pass.length <= 5) || (pass.length > 8)) {
+                document.getElementById("password").innerHTML = "password lenghth Must be 6 to 8";
+                return false;
+            }
+
+            //    How to match pasword with Confirm Password
+            if (pass != conpass) {
+                document.getElementById("password").innerHTML = "password is not matching";
+                return false;
+            }
+
+            //3.This Condition is Checking is Empty or Not
+            if (conpass == "") {
+                // confirmpass is span class name 
+                document.getElementById("confirmpass").innerHTML = "confirm Password is Empty ";
+                return false;
+            }
+
+            if (mobileno == "") {
+                // mobileno is span class name 
+                document.getElementById("mobileno").innerHTML = "enter mobile no";
+                return false;
+            }
+            if(mobileno.length<=10){
+                document.getElementById("mobileno").innerHTML = "mobile number should be atleast 10 character";
+                return false;
+            }
+            //5.This Condition is Checking is Empty or Not
+            if (emails == "") {
+                // emailid is span class name 
+                document.getElementById("emailid").innerHTML = "Enter Email-id";
+                return false;
+            }
+            //This is required For Email Processes
+            if (emails.indexOf('@') <= 0) {
+                document.getElementById("emailid").innerHTML = " ** @ Invalid position";
+                return false;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
